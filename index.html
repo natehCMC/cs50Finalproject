@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Sign In</title>
+    <title>User Registration</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Sign In</h2>
-        <form id="signin-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Sign In</button>
-        </form>
-    </div>
-    
-    <script src="script.js"></script>
+    <h2>Register</h2>
+    <form action="register.py" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Register</button>
+    </form>
 </body>
 </html>
