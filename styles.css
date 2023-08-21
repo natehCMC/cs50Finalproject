@@ -1,0 +1,62 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and default font */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* Style the main content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+/* Style the introduction section */
+.intro {
+    margin-bottom: 2em;
+}
+
+/* Style the calculator section */
+.calculator-section, .registration-section {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1.5em;
+    margin-bottom: 2em;
+}
+
+/* Style buttons */
+.calculator-button, .registration-button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.calculator-button:hover, .registration-button:hover {
+    background-color: #555;
+}
+
+/* Style the footer */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: white;
+}
