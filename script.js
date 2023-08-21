@@ -6,8 +6,12 @@ signInForm.addEventListener('submit', function(event) {
     const username = signInForm.username.value;
     const password = signInForm.password.value;
     
-    // You can add authentication logic here
-    // For now, let's just log the entered values
-    console.log('Username:', username);
-    console.log('Password:', password);
+    // Check for default username and password
+    if (username === 'Admin' && password === '0000') {
+        // Redirect to the new page with the "Hello World" message
+        window.location.href = 'calculator/hello.html';
+    } else {
+        console.log('Invalid username or password');
+        // You can display an error message to the user here
+    }
 });
