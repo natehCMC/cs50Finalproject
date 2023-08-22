@@ -31,7 +31,7 @@ main {
 }
 
 /* Style the calculator section */
-.calculator-section, .registration-section {
+.calculator-section {
     background-color: white;
     border: 1px solid #ddd;
     padding: 1.5em;
@@ -39,7 +39,7 @@ main {
 }
 
 /* Style buttons */
-.calculator-button, .registration-button {
+.calculator-button {
     display: inline-block;
     padding: 0.5em 1em;
     background-color: #333;
@@ -49,7 +49,7 @@ main {
     transition: background-color 0.2s;
 }
 
-.calculator-button:hover, .registration-button:hover {
+.calculator-button:hover {
     background-color: #555;
 }
 

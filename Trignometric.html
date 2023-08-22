@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trigonometric Calculator</title>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set a background color and default font */
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        /* Style the main content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2em;
+        }
+
+        /* Style the introduction section */
+        .intro {
+            margin-bottom: 2em;
+        }
+
+        /* Style the calculator section */
+        .calculator-section {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1.5em;
+            margin-bottom: 2em;
+        }
+
+        /* Style buttons */
+        .calculator-button {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .calculator-button:hover {
+            background-color: #555;
+        }
+
+        /* Style the footer */
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trigonometric Calculator</h1>
+    </header>
+
+    <main>
+        <div class="calculator-section">
+            <h2>Trigonometric Calculator</h2>
+            <input type="number" id="input" placeholder="Enter angle in degrees">
+            <button class="calculator-button" onclick="calculate()">Calculate</button>
+            <p id="result" Height=""></p>
+        </div>
+		<center>Work here is done? let's go <a href="index.html"> home</a></center>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Chetan Sharma CS50 Final Project</p>
+    </footer>
+
+    <script>
+        function calculate() {
+            const inputAngle = parseFloat(document.getElementById('input').value);
+
+            if (isNaN(inputAngle)) {
+                document.getElementById('result').innerText = 'Please enter a valid number.';
+                return;
+            }
+
+            const angleInRadians = inputAngle * (Math.PI / 180);
+            const sine = Math.sin(angleInRadians);
+            const cosine = Math.cos(angleInRadians);
+            const tangent = Math.tan(angleInRadians);
+
+            const resultText = `
+                Angle: ${inputAngle} degrees
+                Sine: ${sine.toFixed(4)}
+                Cosine: ${cosine.toFixed(4)}
+                Tangent: ${tangent.toFixed(4)}
+            `;
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+</html>

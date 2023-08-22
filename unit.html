@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        select, input, button {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+ <h1>Unit Converter</h1>
+
+    <select id="conversionType" onchange="changeConversionType()">
+        <option value="area">Area</option>
+        <option value="length">Length</option>
+        <option value="temperature">Temperature</option>
+        <option value="volume">Volume</option>
+        <option value="mass">Mass</option>
+        <option value="data">Data</option>
+        <option value="speed">Speed</option>
+        <option value="time">Time</option>
+        <option value="tips">Tips</option>
+    </select>
+
+    <input type="number" id="inputValue" placeholder="Enter value">
+    <span id="unitLabel">m²</span>
+    <button onclick="calculate()">Calculate</button>
+    <button onclick="changeConversionType()">Change</button>
+
+    <p id="result"></p>
+
+    <script>
+			 const conversionFactors = {
+    area: {
+        squareMeters: 1,
+        squareFeet: 0.092903,
+    },
+    length: {
+        meters: 1,
+        feet: 0.3048,
+    },
+    temperature: {
+        celsiusToFahrenheit: celsius => (celsius * 9/5) + 32,
+        fahrenheitToCelsius: fahrenheit => (fahrenheit - 32) * 5/9,
+    },
+    volume: {
+        cubicMeters: 1,
+        cubicFeet: 35.3147,
+        liters: 1000,
+        gallons: 264.172,
+    },
+    mass: {
+        kilograms: 1,
+        pounds: 2.20462,
+    },
+    data: {
+        bytes: 1,
+        kilobytes: 0.001,
+        megabytes: 0.000001,
+        gigabytes: 0.000000001,
+    },
+    speed: {
+        metersPerSecond: 1,
+        kilometersPerHour: 3.6,
+        milesPerHour: 2.23694,
+    },
+    time: {
+        seconds: 1,
+        minutes: 0.0166667,
+        hours: 0.000277778,
+    },
+    tips: {
+        excellent: 0.20,
+        good: 0.15,
+        average: 0.10,
+    },
+};
+
+function updateUnitLabel(conversionType) {
+    const unitLabel = document.getElementById("unitLabel");
+    switch (conversionType) {
+        case "area":
+            unitLabel.textContent = "m²";
+            break;
+        case "length":
+            unitLabel.textContent = "m";
+            break;
+        case "temperature":
+            unitLabel.textContent = "°C";
+            break;
+        case "volume":
+            unitLabel.textContent = "m³";
+            break;
+        case "mass":
+            unitLabel.textContent = "kg";
+            break;
+        case "data":
+            unitLabel.textContent = "bytes";
+            break;
+        case "speed":
+            unitLabel.textContent = "m/s";
+            break;
+        case "time":
+            unitLabel.textContent = "seconds";
+            break;
+        case "tips":
+            unitLabel.textContent = "%";
+            break;
+        default:
+            unitLabel.textContent = "";
+            break;
+    }
+}
+
+function calculate() {
+    const conversionType = document.getElementById("conversionType").value;
+    const inputValue = parseFloat(document.getElementById("inputValue").value);
+
+    if (isNaN(inputValue)) {
+        document.getElementById("result").textContent = "Invalid input value.";
+        return;
+    }
+
+    let result;
+
+    switch (conversionType) {
+        case "area":
+        case "length":
+            result = inputValue * conversionFactors[conversionType].feet;
+            break;
+        case "temperature":
+            result = conversionFactors[conversionType].celsiusToFahrenheit(inputValue);
+            break;
+        case "volume":
+            result = inputValue * conversionFactors[conversionType].cubicFeet;
+            break;
+        case "mass":
+            result = inputValue * conversionFactors[conversionType].pounds;
+            break;
+        case "data":
+        case "speed":
+        case "time":
+            result = inputValue * conversionFactors[conversionType].kilobytes;
+            break;
+        case "tips":
+            result = inputValue * conversionFactors[conversionType].excellent;
+            break;
+        default:
+            result = "Invalid conversion type.";
+            break;
+    }
+
+    if (isNaN(result)) {
+        document.getElementById("result").textContent = "Invalid conversion.";
+    } else {
+        document.getElementById("result").textContent = result.toFixed(2);
+    }
+}
+
+function changeConversionType() {
+    const conversionType = document.getElementById("conversionType").value;
+    updateUnitLabel(conversionType);
+
+    // Clear result and input field
+    document.getElementById("result").textContent = "";
+    document.getElementById("inputValue").value = "";
+}
+
+    </script>
+</body>
+</html>

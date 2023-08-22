@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+     /* Reset default margin and padding */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and default font */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* Style the main content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+/* Style the calculator section */
+.calculator-section {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1.5em;
+    margin-bottom: 2em;
+}
+
+/* Style buttons */
+.calculator-button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.calculator-button:hover {
+    background-color: #555;
+}
+
+/* Style the mathematical functions section */
+.functions-section {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+
+/* Style function buttons */
+.function-button {
+    display: block;
+    padding: 0.5em 1em;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.function-button:hover {
+    background-color: #777;
+}
+/* Style the footer */
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple Calculator</h1>
+    </header>
+<center>
+    <main>
+        <div class="calculator">
+            <input id="display" type="text" readonly>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="calculator-button" onclick="appendToDisplay('1')">1</button></td>
+                        <td><button class="calculator-button" onclick="appendToDisplay('2')">2</button></td>
+                        <td><button class="calculator-button" onclick="appendToDisplay('3')">3</button></td>
+                        <td><button class="function-button" onclick="appendToDisplay('+')">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calculator-button" onclick="appendToDisplay('4')">4</button></td>
+                        <td><button class="calculator-button" onclick="appendToDisplay('5')">5</button></td>
+                        <td><button class="calculator-button" onclick="appendToDisplay('6')">6</button></td>
+                        <td><button class="function-button" onclick="appendToDisplay('-')">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calculator-button" onclick="appendToDisplay('7')">7</button></td>
+                        <td><button class="calculator-button" onclick="appendToDisplay('8')">8</button></td>
+                        <td><button class="calculator-button" onclick="appendToDisplay('9')">9</button></td>
+                        <td><button class="function-button" onclick="appendToDisplay('*')">*</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calculator-button" onclick="appendToDisplay('0')">0</button></td>
+                        <td><button class="function-button" onclick="clearDisplay()">C</button></td>
+                        <td><button class="calculator-button" onclick="appendToDisplay('.')">.</button></td>
+                        <td><button class="function-button" onclick="appendToDisplay('/')">/</button></td>
+                    </tr>
+                </table>
+                <button class="function-button" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </main>
+</center>
+
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            try {
+                const expression = document.getElementById('display').value;
+                const result = eval(expression);
+                document.getElementById('display').value = result;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+<center>Work here is done? let's go <a href="index.html"> home</a></center>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Chetan Sharma CS50 Final Project</p>
+    </footer>
+</html>
