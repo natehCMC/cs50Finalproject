@@ -87,57 +87,61 @@
     <input type="number" id="inputValue" placeholder="Enter value">
     <span id="unitLabel">m² to ft²</span>
     <button onclick="calculate()">Calculate</button>
-    <button onclick="changeConversionType()">Change</button>
 
-    <p id="result">Result Shown Here</p><br>
+    <p id="result">0</p><br>
 	Work here is done? let's go <a href="index.html"> home</a>
 	</center>
     <script>
-			 const conversionFactors = {
-    area: {
-        squareMeters: 1,
-        squareFeet: 0.092903,
-    },
-    length: {
-        meters: 1,
-        feet: 0.3048,
-    },
-    temperature: {
-        celsiusToFahrenheit: celsius => (celsius * 9/5) + 32,
-        fahrenheitToCelsius: fahrenheit => (fahrenheit - 32) * 5/9,
-    },
-    volume: {
-        cubicMeters: 1,
-        cubicFeet: 35.3147,
-        liters: 1000,
-        gallons: 264.172,
-    },
-    mass: {
-        kilograms: 1,
-        pounds: 2.20462,
-    },
-    data: {
-        bytes: 1,
-        kilobytes: 0.001,
-        megabytes: 0.000001,
-        gigabytes: 0.000000001,
-    },
-    speed: {
-        metersPerSecond: 1,
-        kilometersPerHour: 3.6,
-        milesPerHour: 2.23694,
-    },
-    time: {
-        seconds: 1,
-        minutes: 0.0166667,
-        hours: 0.000277778,
-    },
-    tips: {
-        excellent: 0.20,
-        good: 0.15,
-        average: 0.10,
-    },
-};
+			 const conversionFactors = 
+			 {
+					area: 
+					{
+						squareMeters: 1,
+						squareFeet: 0.092903,
+					},
+					length: 
+					{
+						meters: 1,
+						feet: 0.3048,
+					},
+					temperature: 
+					{
+						celsiusToFahrenheit: celsius => (celsius * 9/5) + 32,
+						fahrenheitToCelsius: fahrenheit => (fahrenheit - 32) * 5/9,
+					},
+					volume: 
+					{
+						cubicMeters: 1,
+						cubicFeet: 35.3147,
+					},
+					mass: 
+					{
+						kilograms: 1,
+						pounds: 2.20462,
+					},
+					data: 
+					{
+						bytes: 1,
+						kilobytes: 0.0009765625,
+
+					},
+					speed: 
+					{
+						metersPerSecond: 1,
+						milesPerHour: 2.23694,
+					},
+					time: 
+					{
+						seconds: 1,
+						hours: 0.000277778,
+					},
+					tips: 
+					{
+						excellent: 0.20,
+						good: 0.15,
+						average: 0.10,
+					},
+			};
 
 function updateUnitLabel(conversionType) {
     const unitLabel = document.getElementById("unitLabel");
@@ -232,7 +236,7 @@ function changeConversionType() {
     updateUnitLabel(conversionType);
 
     // Clear result and input field
-    document.getElementById("result").textContent = "";
+    document.getElementById("result").textContent = "0";
     document.getElementById("inputValue").value = "";
 }
 

@@ -99,12 +99,18 @@
             const sine = Math.sin(angleInRadians);
             const cosine = Math.cos(angleInRadians);
             const tangent = Math.tan(angleInRadians);
-
+			const atangent = Math.atan(angleInRadians);
+			const acosine = Math.acos(angleInRadians);
+			const asine = Math.asin(angleInRadians);
+			
             const resultText = `
                 Angle: ${inputAngle} degrees
                 Sine: ${sine.toFixed(4)}
                 Cosine: ${cosine.toFixed(4)}
                 Tangent: ${tangent.toFixed(4)}
+				atangent:${atangent.toFixed(4)}
+				acosine:${acosine.toFixed(4)}
+				asine:${asine.toFixed(4)}
             `;
 
             document.getElementById('result').innerText = resultText;
