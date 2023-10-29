@@ -5,7 +5,7 @@
 This is a Scientific Calculator in Three parts:
 1. A simple operation calculator
 2. A Trignometric Calculator
-3. Unit Convertion Calculator (a special Tips calculator for the american people)
+3. Unit Convertion Calculator
 
 **Design Choice:**
 -A Simple Css Dedicated for a dark on light theme , Divided in rows. I Couldve used flask for this but since iwas unfamiliar and had little time left i chose not to and do all this in HTML,JS and Css instead.
