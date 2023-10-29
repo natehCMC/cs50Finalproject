@@ -15,7 +15,8 @@ Languages used:
 1. HTML
 2. JAVASCRIPT
 3. CSS
-NOT USED + REASON:
+
+**NOT USED + REASON:**
 1. PYTHON: didn't have time to tinker around it
 2. C: way too much work for a such a simple task
 3. flask: Unfamiliar with the framework making it harder for me to keep track as of yet.
